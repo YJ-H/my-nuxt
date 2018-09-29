@@ -1,7 +1,7 @@
 <template>
   <el-container class="containerMain">
     <el-header>
-      <el-menu :default-active="activeIndex" class="el-menu-demo menu-top" mode="horizontal" @select="handleSelect">
+      <el-menu :default-active="activeIndex" class="el-menu-demo menu-top" mode="horizontal">
         <el-menu-item index="1"><a href="https://cn.vuejs.org/" class="topLink" target="_blank">Vue</a></el-menu-item>
         <el-menu-item index="2"><a href="https://nuxtjs.org/guide" class="topLink" target="_blank">Nuxt</a></el-menu-item>
       </el-menu>
@@ -28,6 +28,12 @@ export default {
   // }
   asyncData ({params}) {
     return {
+      activeIndex: ''
+    }
+  },
+  data () {
+    return {
+      a: 1,
       activeIndex: ''
     }
   }
