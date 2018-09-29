@@ -1,13 +1,12 @@
 <template>
   <div class="page">
-    基于nuxt+nginx，快速搭建一个web服务。
-    <br>
-    本站只自用记录
+    ppppppp
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 export default {
+ 
   components: {
 
   }

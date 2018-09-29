@@ -9,9 +9,9 @@
     <el-container class="containerMain">
       <el-aside width="200px">
         <ul>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
+          <li v-for="(menu,index) in menus" :key="index" class="nav-item">
+            <a :href="menu.href" :class="[$route.path === menu.href ? 'active' : '']">{{ menu.name }}</a>
+          </li>
         </ul>
       </el-aside>
       <el-main>
@@ -22,21 +22,23 @@
 </template>
 
 <script>
+import menus from "~/assets/menu.js";
 export default {
-  // data: {
-  //   activeIndex: ''
-  // }
   asyncData ({params}) {
     return {
-      activeIndex: ''
+      activeIndex: '',
     }
   },
   data () {
     return {
       a: 1,
-      activeIndex: ''
+      activeIndex: '',
+      menus: menus
     }
-  }
+  },
+   mounted () {
+    console.log(this.$route)
+  },
 }
 </script>
 
@@ -113,10 +115,27 @@ html {
       margin-top: 20px; 
       height: 100%;
     }
+    .nav-item {
+      font-size: 12px;
+      color: #999;
+      line-height: 26px;
+      margin-top: 15px;
+      display: list-item;
+      text-align: -webkit-match-parent;
+      font-size: 16px;
+      list-style: none;
+      a {
+        color:  #999;
+        text-decoration: none;
+      }
+      a.active {
+        color: #409eff;
+      }
+    }
     .menu-top {
       padding-left: 220px;
       li.el-menu-item {
-        font-size: 16px;
+        
         color: #000;
         font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
         .topLink {
